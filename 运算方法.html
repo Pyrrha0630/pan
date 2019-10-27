@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <input type="text" id="a">
+        <select  id="w">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="text" id="b">
+        <button onclick='document.getElementById("demo").innerHTML=myFunction()'>运算</button>
+        <input type="text" id="c">
+        <p id="demo"></p>
+    <script>
+        function myFunction(){
+            var a=document.getElementById("a").value;
+            var b=document.getElementById("b").value;
+            a=Number(a);
+            b=Number(b);
+            var w=document.getElementById("w").value;
+            switch(w){
+                case "+":
+                document.getElementById("c").value=a+b
+                break
+                case "-":
+                document.getElementById("c").value=a-b
+                break
+                case "*":
+                document.getElementById("c").value=a*b
+                break
+                case "/":
+                document.getElementById("c").value=a/b
+                break
+            }
+         }
+    
+</script>
+</body>
+</html>
