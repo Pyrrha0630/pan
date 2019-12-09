@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <title>猜数</title>
+</head>
+<body>
+    <input type="button" onclick="checknum()" value="进入数字游戏">
+    <script>
+        function GetRandomNum(Min,Max)
+        { 
+            var Range = Max - Min; 
+            var Rand = Math.random(); 
+            return(Min + Math.round(Rand * Range)); 
+        } 
+        function checknum(){
+            var num = GetRandomNum(1000,9999);
+            var a=[parseInt(num/1000),parseInt((num%1000)/100),parseInt((num%1000)%100/10),parseInt(num%10)];
+            var i,j;
+            var x=0,y=0;
+            var nums=prompt("输入四位数字数字：");
+            var b=[parseInt(nums/1000),parseInt((nums%1000)/100),parseInt((nums%1000)%100/10),parseInt(nums%10)];
+                for(i=0;i<a.length;i++)
+                {
+                    if(a[i]==b[i])
+                    {
+                        x++;
+                    }
+                }
+                for(j=0;j<a.length;j++)
+                {
+                    for(k=0;k<b.length;k++)
+                    {
+                        if(a[j]==b[k])
+                        {
+                            y++;
+                        }
+                    }
+                }
+                y=y-x;
+                document.write("正确答案："+num+"</br>");
+                document.write("您猜的情况为："+x+"T"+y+"F");    
+            }
+</script>
+</body>
+</html>
