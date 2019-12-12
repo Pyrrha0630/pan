@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>机票订单</title>
+    <style>
+        label{
+            float: left;
+            width: 10em;
+            margin-right:1em;
+            text-align: right;
+        }
+    </style>
+</head>
+<body bgcolor="#BBFFFF">
+    <h1><font color="white">联盟 机票</font></h1>
+    总价：<a id="demo">0</a>元（含税费），人数：<b id="demo1">0</b>人
+    <div style="background-color: white" id="container">
+        <label>购票类型：</label><select id="test1">
+            <option value="2200">成人票</option>
+            <option value="1100">儿童票</option>
+            </select> ¥2200/人（含税费）
+        <br><br>
+        <label>姓名：</label><input type="text" id="test2"><br/><br/>
+        <label>证件类型：</label><select name="test3">
+            <option>身份证</option>
+            <option>护照</option>
+            </select>
+        <br><br>
+        <label>证件号码：</label><input type="text" id="test4"><br/><br/>
+        <button id="add">添加乘客</button><br/><br/>
+        <input type="button" onclick="addsum()" value="结算"><br/><br/>
+        </div>
+        <script type="text/javascript">
+        var t=0;
+        var add = document.getElementById('add');
+        var container =document.getElementById('container');
+        var node=container.nextSibling;
+        
+        add.onclick = function(){
+        oDiv = document.createElement('div');
+        oDiv.innerHTML = "<div style='background-color: white' id='container1'><label>购票类型：</label><select name='test1'><option value='2200'>成人票</option><option value='1100'>儿童票</option></select> ¥2200/人（含税费）<br><br><label>姓名：</label><input type='text' id='test2'><br/><br/><label>证件类型：</label><select name='test3'><option>身份证</option><option>护照</option></select><br><br><label>证件号码：</label><input type='text' id='test4'><br/><br/><input type='button' onclick='test(this)' value='删除'/></div>";
+        container.parentNode.insertBefore(oDiv, node)
+        node=oDiv.nextSibling;
+        t++;
+        }
+        
+        function test(test){
+        test.parentNode.parentNode.removeChild(test.parentNode);
+        t--;
+        }
+
+        function addsum(){
+            var k=2200;
+            var sum=0;
+            for(i=0;i<=t;i++) 
+            {
+                sum+=k;
+　　　　    }
+            document.getElementById("demo").innerHTML=sum;
+            document.getElementById("demo1").innerHTML=t+1;
+        }
+        </script> 
+</body>
+</html>
